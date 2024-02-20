@@ -1,0 +1,11 @@
+{
+    "PROMPT_W2": "../prompts/w2_prompt.txt",
+    "PROMPT_1040_PREV": "../prompts/1040_prompt.txt",
+    "PROMPT_F1040": "../prompts/text_model_prompt.txt",
+    "W2_FORMS_DIR": "../data/w2_forms",
+    "PAST_1040_FORMS_DIR": "../data/past_1040_forms",
+    "INFO_DIR": "../data/info/info_1040.txt",
+    "F1040_FORM": "../data/f1040.pdf",
+    "FILLED_F1040_FORM": "../data/filled_f1040.pdf",
+    "FILLED_F1040_FORM_IMAGE": "../data/filled_f1040.png"
+}

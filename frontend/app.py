@@ -1,9 +1,8 @@
-import os
-import base64
-import requests
-import json
 import sys
 from pathlib import Path
+import json
+with open('../config.json', 'r') as config_file:
+    config = json.load(config_file)
 # Add the parent directory to sys.path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
@@ -47,13 +46,13 @@ def main():
                 file_paths = []
                 if uploaded_file_w2:
                     for file in uploaded_file_w2:
-                        save_uploaded_file(file, "../data/w2_forms")
-                        process_form("../prompts/w2_prompt.txt", "../data/w2_forms", "../data/info/info_w2.txt")
+                        save_uploaded_file(file, config['W2_FORMS_DIR'])
+                        process_form(config['PROMPT_W2'], config['W2_FORMS_DIR'], config['INFO_DIR'])
                     
                 if uploaded_file_1040:
                     for file in uploaded_file_1040:
-                        save_uploaded_file(file, "../data/past_1040_forms")
-                        process_form("../prompts/1040_prompt.txt", "../data/past_1040_forms", "../data/info/info_1040.txt")
+                        save_uploaded_file(file, config['PAST_1040_FORMS_DIR'])
+                        process_form(config['PROMPT_1040_PREV'], config['PAST_1040_FORMS_DIR'], config['INFO_DIR'])
 
 
         with tab2:
@@ -74,14 +73,10 @@ def main():
         with tab3:
             st.subheader("Preview of your prepared tax form.")
             if st.button("Prepare Tax Form"):
-                fill_tax_form("../prompts/text_model_prompt.txt",
-                            "../data/f1040.pdf",
-                            "../data/filled_f1040.pdf")
-                save_pdf_as_image("../data/filled_f1040.pdf")
-                displayImage("../data/filled_f1040.png")
+                fill_tax_form(config['PROMPT_F1040'], config['F1040_FORM'], config['FILLED_F1040_FORM'])
+                save_pdf_as_image(config['FILLED_F1040_FORM'])
+                displayImage(config['FILLED_F1040_FORM_IMAGE'])
             st.caption('Double check and dont mess up. Uncle sam will come after you')
-            #displayImage(image_path)
-            # display_images_from_folder(image_path)
 
 
         with tab4:

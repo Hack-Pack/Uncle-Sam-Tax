@@ -35,15 +35,9 @@ def fill_tax_form(prompt_path, input_pdf_path, output_pdf_path):
     # Read the prompt file
     with open(prompt_path, "r", encoding="utf-8") as f:
         context = f.read()
-    
-    # Assuming TextModel is defined elsewhere and works with the combined info and context
     text_model = TextModel()
-
-    # Then use the text model to fill in the form
     str_response = text_model.complete(info + context)
-
     json_response = json.loads(str_response)
-
     fill_pdf_form(json_response, input_pdf_path, output_pdf_path)
 
 def fill_pdf_form(form_data, input_pdf_path, output_pdf_path):

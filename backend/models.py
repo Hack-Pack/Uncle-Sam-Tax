@@ -50,6 +50,7 @@ class VisionModel(Model):
         # Make the API request
         response = client.chat.completions.create(model=self.model_name,
         messages=[{"role": "user", "content": content}],
+        temperature=0,
         max_tokens=1000)
         
         return response.choices[0].message.content

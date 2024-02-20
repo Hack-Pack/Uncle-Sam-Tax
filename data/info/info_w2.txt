@@ -1,9 +1,15 @@
+Certainly, here is the requested information in the specified format for both forms:
+
+**For the first W-2 form:**
+```
 Wages, tips, other compensation (Box 1): $169,665
 Federal income tax withheld (Box 2): $31,447
 State income tax (Box 17): $12,822
+```
 
-And for the second image:
-
+**For the second W-2 form:**
+```
 Wages, tips, other compensation (Box 1): $219,171
 Federal income tax withheld (Box 2): $36,261
 State income tax (Box 17): $15,269
+```
