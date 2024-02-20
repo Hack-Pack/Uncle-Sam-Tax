@@ -1,7 +1,7 @@
 import os
 import streamlit as st
 import base64
-from pdf2image import convert_from_bytes
+from pdf2image import convert_from_bytes, convert_from_path
 
 def save_uploaded_file(uploaded_file, directory):
     if uploaded_file is not None:
@@ -17,6 +17,17 @@ def save_uploaded_file(uploaded_file, directory):
             image.save(image_path, "PNG")
         
     return None
+
+def save_pdf_as_image(pdf_path):
+    # Convert the first page of the PDF to an image
+    images = convert_from_path(pdf_path, first_page=1, last_page=1)
+    
+    # Save the first page as a PNG
+    image_path = pdf_path.rsplit('.', 1)[0] + '.png'
+    images[0].save(image_path, 'PNG')
+    
+    return image_path
+
 
 
 def displayImage(image_path):

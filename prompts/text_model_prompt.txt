@@ -1,0 +1,19 @@
+return a json object with the following format. Replace the values in <> by the appropriate string values from the context.
+The format:
+{
+"f1_04[0]": <Last name>,
+"f1_05[0]": <Your first name and middle initial>,
+"f1_07[0]": <If joint return, spouse’s first name and middle initial>,
+"f1_08[0]": <Last name (spouse)>,
+"f1_10[0]": <Home address (number and street). If you have a P.O. box, see instructions.>,
+"f1_12[0]": <City, town, or post office. If you have a foreign address, also complete spaces below.>,
+"f1_13[0]": <State>,
+"f1_14[0]": <ZIP code>,
+"f1_31[0]": <Total amount from Form(s) W-2, box 1 (see instructions).>
+}
+
+Please note:
+1. If the information is not provided in the context, assign an empty string for the value
+2. For the total amount for W-2, sum up the values from the W-2 values provided in the context.
+
+The context:

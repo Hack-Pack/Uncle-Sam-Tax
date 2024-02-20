@@ -7,7 +7,7 @@ from pathlib import Path
 # Add the parent directory to sys.path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from backend.utils import process_form
+from backend.utils import process_form, fill_tax_form
 from PyPDF2 import PdfReader, PdfWriter
 import streamlit as st
 from utils import *
@@ -43,17 +43,17 @@ def main():
                 label_visibility="hidden",
             )
 
-            if st.button("Submit"):
+            if st.button("Process Forms"):
                 file_paths = []
                 if uploaded_file_w2:
                     for file in uploaded_file_w2:
                         save_uploaded_file(file, "../data/w2_forms")
-                        process_form("../prompts/w2_prompt.txt", "../data/w2_forms", "../data/info_w2.txt")
+                        process_form("../prompts/w2_prompt.txt", "../data/w2_forms", "../data/info/info_w2.txt")
                     
                 if uploaded_file_1040:
                     for file in uploaded_file_1040:
                         save_uploaded_file(file, "../data/past_1040_forms")
-                        process_form("../prompts/1040_prompt.txt", "../data/past_1040_forms", "../data/info_1040.txt")
+                        process_form("../prompts/1040_prompt.txt", "../data/past_1040_forms", "../data/info/info_1040.txt")
 
 
         with tab2:
@@ -73,8 +73,14 @@ def main():
 
         with tab3:
             st.subheader("Preview of your prepared tax form.")
+            if st.button("Prepare Tax Form"):
+                fill_tax_form("../prompts/text_model_prompt.txt",
+                            "../data/f1040.pdf",
+                            "../data/filled_f1040.pdf")
+                save_pdf_as_image("../data/filled_f1040.pdf")
+                displayImage("../data/filled_f1040.png")
             st.caption('Double check and dont mess up. Uncle sam will come after you')
-            # displayImage(image_path)
+            #displayImage(image_path)
             # display_images_from_folder(image_path)
 
 

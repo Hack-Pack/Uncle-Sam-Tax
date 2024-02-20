@@ -11,7 +11,7 @@ class Model:
         self.model_name = model_name
 
 class TextModel(Model):
-    def __init__(self, model_name="gpt-4"):
+    def __init__(self, model_name="gpt-4-1106-preview"):
         super().__init__(model_name)
 
     def complete(self, prompt):
@@ -22,10 +22,11 @@ class TextModel(Model):
         
         completion = client.chat.completions.create(model=self.model_name,
         temperature=0,
-        messages=messages)
+        messages=messages,
+        response_format={"type": "json_object"})
         
         # Returning the response message
-        return completion.choices[0].message
+        return completion.choices[0].message.content
     
 class VisionModel(Model):
     def __init__(self, model_name="gpt-4-vision-preview"):

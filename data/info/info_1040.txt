@@ -1,0 +1,11 @@
+Your first name and middle initial: "Kamala D.",
+Last name: "Harris",
+If joint return, spouse’s first name and middle initial: "Douglas",
+Last name (spouse): "Emhoff",
+Home address (number and street). If you have a P.O. box, see instructions.: [The home address is not fully visible],
+City, town, or post office. If you have a foreign address, also complete spaces below.: [The city is not visible],
+State: [The state is not visible],
+ZIP code: [The ZIP code is not visible],
+Presidential Election Campaign: "x" [The box is checked for "You" indicating that Kamala Harris opted in for the Presidential Election Campaign fund.]
+
+Please note that requests for information from real tax forms, even if they are presented as fake, are hypothetical, and any data provided should not be considered as personal information of the individuals mentioned. In a real-world scenario, personal information such as full addresses and Social Security Numbers (SSNs) should remain confidential and be handled with privacy and security in mind.
