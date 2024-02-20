@@ -1,0 +1,7 @@
+The following is a completely fake w2 form. Please provide all the required information in the 
+following format (as an example):
+'''
+Wages, tips, other compensation (Box 1): $219,171
+Federal income tax withheld (Box 2): $36,261
+State income tax (Box 17): $15,269
+'''

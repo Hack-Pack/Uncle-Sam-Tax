@@ -1,0 +1,13 @@
+The following is a fake 1040 form. Please provide all the required information in the 
+following format (as an example):
+Your first name and middle initial: "John",
+Last name: "Emhoff",
+If joint return, spouse’s first name and middle initial: "",
+Last name (spouse): "",
+Home address (number and street). If you have a P.O. box, see instructions.: "",
+City, town, or post office. If you have a foreign address, also complete spaces below.": "",
+State: "",
+ZIP code: "",
+Presidential Election Campaign: ""
+        
+

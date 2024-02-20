@@ -1,0 +1,11 @@
+Here are the details from the provided sample W-2 forms:
+
+W-2 Form from Georgetown University:
+Wages, tips, other compensation (Box 1): $169,665
+Federal income tax withheld (Box 2): $31,447
+State income tax (Box 17): $12,822
+
+W-2 Form from United States Senate:
+Wages, tips, other compensation (Box 1): $219,171
+Federal income tax withheld (Box 2): $36,261
+State income tax (Box 17): $15,269
