@@ -1,16 +1,15 @@
 import sys
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 import json
 from backend.utils import process_form, fill_tax_form
 from PyPDF2 import PdfReader, PdfWriter
 import streamlit as st
 from utils import *
-from backend.utils import process_form
 
 with open("../config.json", "r") as config_file:
     config = json.load(config_file)
-# Add the parent directory to sys.path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 
 st.set_page_config(page_title="", page_icon="💰", layout="wide")
