@@ -3,7 +3,13 @@ import base64
 from openai import OpenAI
 from dotenv import load_dotenv
 load_dotenv()
-client = OpenAI()
+client = OpenAI(    
+    base_url="https://api.portkey.ai/v1",
+    default_headers= {        
+        "x-portkey-provider": "openai",
+        "Content-Type": "application/json"
+    }
+)
 from glob import glob
 
 class Model:
