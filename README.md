@@ -1,4 +1,4 @@
-# 1040-GPT
+# Uncle Sam Tax
 
 ## Let GPT-4 Fill Your 1040s
 
