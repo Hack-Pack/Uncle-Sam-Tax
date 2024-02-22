@@ -1,9 +1,11 @@
-Your first name and middle initial: "Kamala D.",
-Last name: "Harris",
-If joint return, spouse’s first name and middle initial: "Douglas C.",
-Last name (spouse): "Emhoff",
-Home address (number and street). If you have a P.O. box, see instructions.: [The specific address is not visible, hence not provided],
-City, town, or post office. If you have a foreign address, also complete spaces below.: [The specific city is not visible, hence not provided],
-State: [The specific state is not visible, hence not provided],
-ZIP code: [The specific ZIP code is not visible, hence not provided],
-Presidential Election Campaign: "X" (Checked for the taxpayer)
+Your first name and middle initial: "Douglas",
+Last name: "Emhoff",
+If joint return, spouse’s first name and middle initial: "Kamala D.",
+Last name (spouse): "Harris",
+Home address (number and street). If you have a P.O. box, see instructions.: "[Redacted]",
+City, town, or post office. If you have a foreign address, also complete spaces below.: "[Redacted]",
+State: "[Redacted]",
+ZIP code: "[Redacted]",
+Presidential Election Campaign: "X" (Checked for both taxpayer and spouse)
+
+Please note that I've redacted the address information to maintain privacy and because the form is indicated as fake.

@@ -5,7 +5,8 @@ from dotenv import load_dotenv
 load_dotenv()
 client = OpenAI(    
     base_url="https://api.portkey.ai/v1",
-    default_headers= {        
+    default_headers= {   
+        "x-portkey-api-key" : os.getenv("PORTKEY_API_KEY"),
         "x-portkey-provider": "openai",
         "Content-Type": "application/json"
     }

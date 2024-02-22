@@ -1,5 +1,6 @@
 import sys
 from pathlib import Path
+
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import json
@@ -10,9 +11,18 @@ from utils import *
 
 with open("../config.json", "r") as config_file:
     config = json.load(config_file)
+import time
 
 
 st.set_page_config(page_title="", page_icon="💰", layout="wide")
+
+
+def process_data(progress_bar, delay, progress_increment, current_progress):
+    """Simulate processing data, updating the progress bar accordingly."""
+    time.sleep(delay)
+    current_progress += progress_increment
+    progress_bar.progress(current_progress)
+    return current_progress
 
 
 def main():
@@ -52,8 +62,26 @@ def main():
                 "Process Forms",
                 help="If you skip the uploads, and we'll demo with handy Pre-Populated W-2 and 1040 Forms for you!",
             ):
+                progress_bar = st.progress(0)
+                current_progress = 0
+
+                current_progress = process_data(
+                    progress_bar,
+                    delay=1,
+                    progress_increment=25,
+                    current_progress=current_progress,
+                )
+
                 file_paths = []
+
+                # W2 File Save
                 if uploaded_file_w2:
+                    current_progress = process_data(
+                        progress_bar,
+                        delay=1,
+                        progress_increment=25,
+                        current_progress=current_progress,
+                    )
                     for file in uploaded_file_w2:
                         save_uploaded_file(file, config["W2_FORMS_DIR"])
                         process_form(
@@ -61,12 +89,27 @@ def main():
                             config["W2_FORMS_DIR"],
                             config["INFO_DIR"],
                         )
+
                 else:
+                    current_progress = process_data(
+                        progress_bar,
+                        delay=1,
+                        progress_increment=25,
+                        current_progress=current_progress,
+                    )
                     process_form(
                         config["PROMPT_W2"], config["W2_FORMS_DIR"], config["INFO_DIR"]
                     )
 
+                # 1040 File Save
                 if uploaded_file_1040:
+                    current_progress = process_data(
+                        progress_bar,
+                        delay=1,
+                        progress_increment=25,
+                        current_progress=current_progress,
+                    )
+
                     for file in uploaded_file_1040:
                         save_uploaded_file(file, config["PAST_1040_FORMS_DIR"])
                         process_form(
@@ -75,11 +118,25 @@ def main():
                             config["INFO_DIR"],
                         )
                 else:
+                    current_progress = process_data(
+                        progress_bar,
+                        delay=1,
+                        progress_increment=25,
+                        current_progress=current_progress,
+                    )
                     process_form(
                         config["PROMPT_1040_PREV"],
                         config["PAST_1040_FORMS_DIR"],
                         config["INFO_DIR"],
                     )
+                process_data(
+                    progress_bar,
+                    delay=1,
+                    progress_increment=25,
+                    current_progress=current_progress,
+                )
+                progress_bar.empty()
+                st.success("All processes completed!")
 
         with tab2:
             st.header("Preview of your uploaded forms")
@@ -99,13 +156,43 @@ def main():
         with tab3:
             st.subheader("Preview of your prepared tax form.")
             if st.button("Prepare Tax Form"):
+                progress_bar = st.progress(0)
+                current_progress = 0
+
+                current_progress = process_data(
+                    progress_bar,
+                    delay=1,
+                    progress_increment=33,
+                    current_progress=current_progress,
+                )
+
                 fill_tax_form(
                     config["PROMPT_F1040"],
                     config["F1040_FORM"],
                     config["FILLED_F1040_FORM"],
                 )
+
+                current_progress = process_data(
+                    progress_bar,
+                    delay=1,
+                    progress_increment=33,
+                    current_progress=current_progress,
+                )
+
                 save_pdf_as_image(config["FILLED_F1040_FORM"])
                 displayImage(config["FILLED_F1040_FORM_IMAGE"])
+
+                process_data(
+                    progress_bar,
+                    delay=1,
+                    progress_increment=34,
+                    current_progress=current_progress,
+                )
+
+                progress_bar.empty()
+
+                st.success("All processes completed!")
+
             st.caption("Double check and dont mess up. Uncle sam will come after you")
 
         with tab4:
