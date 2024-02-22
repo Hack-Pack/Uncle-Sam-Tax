@@ -15,6 +15,28 @@ def process_form(prompt_path, img_paths, out_path):
     except Exception as e:
         print(f"An error occurred: {e}")
 
+def fill_pdf_form(form_data, input_pdf_path, output_pdf_path):
+
+  reader = PdfReader(input_pdf_path)
+  writer = PdfWriter()
+
+  # Copy all pages from the reader to the writer
+  for page in reader.pages:
+    writer.add_page(page)
+
+  # Attempt to directly modify the '/V' value (not effective in this context)
+  # Instead, prepare the form fields data based on the JSON file
+  fields = {field: form_data.get(field, '') for field in reader.get_form_text_fields()}
+
+  # Update the fields in the writer object for each page
+  for page in writer.pages:
+    writer.update_page_form_field_values(page, fields)
+
+  # Write the output PDF file
+  with open(output_pdf_path, 'wb') as output_pdf:
+    writer.write(output_pdf)
+  print(f"PDF form filled and saved to '{output_pdf_path}'.")
+
 
 def fill_tax_form(prompt_path, input_pdf_path, output_pdf_path):
     # Directory containing the text files
@@ -40,32 +62,5 @@ def fill_tax_form(prompt_path, input_pdf_path, output_pdf_path):
     str_response = text_model.complete(info + context)
     json_response = json.loads(str_response)
     fill_pdf_form(json_response, input_pdf_path, output_pdf_path)
-
-def fill_pdf_form(form_data, input_pdf_path, output_pdf_path):
-
-  reader = PdfReader(input_pdf_path)
-  writer = PdfWriter()
-
-  # Copy all pages from the reader to the writer
-  for page in reader.pages:
-    writer.add_page(page)
-
-  # Attempt to directly modify the '/V' value (not effective in this context)
-  # Instead, prepare the form fields data based on the JSON file
-  logging.info(f"Form Data: {form_data}")
-  
-  fields = {field: form_data.get(field, '') for field in reader.get_form_text_fields()}
-  logging.info(f"fields: {fields}") 
-  
-  # Update the fields in the writer object for each page
-  for page in writer.pages:
-    writer.update_page_form_field_values(page, fields)
-
-  # Write the output PDF file
-  with open(output_pdf_path, 'wb') as output_pdf:
-    writer.write(output_pdf)
-  print(f"PDF form filled and saved to '{output_pdf_path}'.")
-
-
 
 
