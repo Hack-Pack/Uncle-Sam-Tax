@@ -1,4 +1,4 @@
-# 1040-GPT
+# Uncle Sam Tax
 
 ## Let GPT-4 Fill Your 1040s
 
@@ -27,7 +27,7 @@ This command reads the `requirements.txt` file and installs the Python packages 
 You need to configure the required environment variables for the application. Create a `.env` file in the root directory and add your `OPEN_AI_API_KEY` and `PORTKEY_API_KEY` as follows:
 
 ``` bash
-OPEN_AI_API_KEY=<your_open_ai_api_key>
+OPENAI_API_KEY=<your_open_ai_api_key>
 PORTKEY_API_KEY=<your_portkey_api_key>
 ```
 
