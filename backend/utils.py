@@ -2,6 +2,7 @@ import os
 import json
 from PyPDF2 import PdfReader, PdfWriter
 from .models import VisionModel, TextModel
+import logging 
 
 def process_form(prompt_path, img_paths, out_path):
     try:
@@ -51,8 +52,11 @@ def fill_pdf_form(form_data, input_pdf_path, output_pdf_path):
 
   # Attempt to directly modify the '/V' value (not effective in this context)
   # Instead, prepare the form fields data based on the JSON file
+  logging.info(f"Form Data: {form_data}")
+  
   fields = {field: form_data.get(field, '') for field in reader.get_form_text_fields()}
-
+  logging.info(f"fields: {fields}") 
+  
   # Update the fields in the writer object for each page
   for page in writer.pages:
     writer.update_page_form_field_values(page, fields)
