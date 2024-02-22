@@ -9,7 +9,7 @@ from PyPDF2 import PdfReader, PdfWriter
 import streamlit as st
 from utils import *
 
-with open("../config.json", "r") as config_file:
+with open("config.json", "r") as config_file:
     config = json.load(config_file)
 import time
 
